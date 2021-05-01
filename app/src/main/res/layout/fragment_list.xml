@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!--<androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".fragments.list.ListFragment">
@@ -11,115 +11,31 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-             />
-        <?xml version="1.0" encoding="utf-8"?>-->
-
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp"
-            tools:context=".fragments.add.AddFragment">
+            android:paddingBottom="120dp"
+            android:clipToPadding="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/row_item" />
 
-            <com.google.android.material.textfield.TextInputLayout
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/fab_add"
+            app:fabSize="normal"
+            android:tint="@color/white"
+            android:src="@drawable/ic_add"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintStart_toStartOf="@+id/recyclerView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.95" />
 
-                android:id="@+id/layFirstName"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="First name"
-                app:counterEnabled="true"
-                app:counterMaxLength="25"
-                app:endIconCheckable="true"
-
-                app:helperText="required*"
-                app:helperTextEnabled="true"
-                app:helperTextTextColor="#FF0000"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:maxLength="25"
-                    android:maxLines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layLastName"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:hint="Last name"
-                app:counterEnabled="true"
-                app:counterMaxLength="25"
-                app:endIconCheckable="true"
-                app:helperText="required*"
-                app:helperTextEnabled="true"
-                app:helperTextTextColor="#FF0000"
-                app:layout_constraintEnd_toEndOf="@id/layFirstName"
-                app:layout_constraintStart_toStartOf="@id/layFirstName"
-                app:layout_constraintTop_toBottomOf="@id/layFirstName">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:maxLength="25"
-                    android:maxLines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layAge"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:hint="Age"
-                app:counterEnabled="true"
-                app:counterMaxLength="2"
-                app:endIconCheckable="true"
-                app:endIconMode="clear_text"
-                app:endIconTint="#456"
-                app:helperText="required*"
-                app:helperTextEnabled="true"
-                app:helperTextTextColor="#FF0000"
-                app:layout_constraintEnd_toEndOf="@id/layLastName"
-                app:layout_constraintStart_toStartOf="@id/layLastName"
-                app:layout_constraintTop_toBottomOf="@id/layLastName">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:maxLength="2"
-                    android:maxLines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fabAdd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
-                android:backgroundTint="@color/purple_500"
-                android:contentDescription="@string/fab_add"
-                android:src="@drawable/ic_done"
-                app:fabSize="mini"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/layAge"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/layAge"
-                app:layout_constraintTop_toBottomOf="@+id/layAge"
-                app:layout_constraintVertical_bias="0.0" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-</layout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </layout>
