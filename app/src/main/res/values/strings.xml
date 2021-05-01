@@ -5,4 +5,12 @@
     <string name="search">Search</string>
     <string name="delete">Delete</string>
     <string name="fab_add">fab add</string>
+    <string name="fab_ok">fab_ok</string>
+    <string name="age">Age</string>
+    <string name="last_name">Last name</string>
+    <string name="first_name">First name</string>
+    <string name="user_pic">user pic</string>
+    <string name="name">Name:</string>
+    <string name="age_item">Age:</string>
+    <string name="edit">edit</string>
 </resources>
