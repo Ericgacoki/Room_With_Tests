@@ -14,6 +14,7 @@
             android:id="@+id/action_listFragment_to_addFragment"
             app:destination="@id/addFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/addFragment"
         android:name="com.ericg.groom.fragments.add.AddFragment"
@@ -21,6 +22,8 @@
         tools:layout="@layout/fragment_add">
         <action
             android:id="@+id/action_addFragment_to_listFragment"
-            app:destination="@id/listFragment" />
+            app:destination="@id/listFragment"
+            app:popUpTo="@id/addFragment" />
     </fragment>
+
 </navigation>
