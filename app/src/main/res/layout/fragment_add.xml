@@ -22,19 +22,19 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="First name"
+                android:hint="@string/first_name"
                 app:counterEnabled="true"
                 app:counterMaxLength="25"
                 app:endIconCheckable="true"
-
                 app:helperTextEnabled="true"
-                app:helperText="required*"
+                app:helperText="*"
                 app:helperTextTextColor="#FF0000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/firstName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
@@ -47,18 +47,19 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="Last name"
+                android:hint="@string/last_name"
                 app:counterEnabled="true"
                 app:counterMaxLength="25"
                 app:endIconCheckable="true"
                 app:helperTextEnabled="true"
-                app:helperText="required*"
+                app:helperText="*"
                 app:helperTextTextColor="#FF0000"
                 app:layout_constraintEnd_toEndOf="@id/layFirstName"
                 app:layout_constraintStart_toStartOf="@id/layFirstName"
                 app:layout_constraintTop_toBottomOf="@id/layFirstName">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/lastName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
@@ -71,11 +72,11 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="Age"
+                android:hint="@string/age"
                 app:counterEnabled="true"
                 app:counterMaxLength="2"
                 app:endIconCheckable="true"
-                app:helperText="required*"
+                app:helperText="*"
                 app:helperTextEnabled="true"
                 app:endIconMode="clear_text"
                 app:endIconTint="#456"
@@ -85,6 +86,7 @@
                 app:layout_constraintTop_toBottomOf="@id/layLastName">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/age"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -93,12 +95,12 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fabAdd"
+                android:id="@+id/fabOk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fabSize="mini"
-                android:backgroundTint="@color/purple_500"
                 android:src="@drawable/ic_done"
+                android:tint="@color/white"
                 android:layout_marginVertical="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/layAge"
@@ -106,7 +108,7 @@
                 app:layout_constraintStart_toStartOf="@+id/layAge"
                 app:layout_constraintTop_toBottomOf="@+id/layAge"
                 app:layout_constraintVertical_bias="0.0"
-                android:contentDescription="@string/fab_add" />
+                android:contentDescription="@string/fab_ok" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
