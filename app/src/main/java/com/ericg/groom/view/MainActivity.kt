@@ -9,7 +9,13 @@ import com.ericg.groom.R
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportActionBar?.title = "G-Room"
         setContentView(R.layout.activity_main)
+
+        setupActionBarWithNavController(findNavController(R.id.host_fragment))
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.host_fragment)
+        return navController.navigateUp() ||  super.onSupportNavigateUp()
     }
 }
