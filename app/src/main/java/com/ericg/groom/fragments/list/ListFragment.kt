@@ -52,13 +52,6 @@ class ListFragment : Fragment(), ListAdapter.ItemClicked {
             layoutManager = LinearLayoutManager(requireContext())
         }
 
-        listBinding.recyclerView.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
-            Toast.makeText(
-                requireContext(),
-                if (oldScrollY < scrollY) "View bottom items" else "view top items",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
     }
 
     private fun getData() {
