@@ -1,9 +1,11 @@
 package com.ericg.groom.fragments.add
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -39,8 +41,6 @@ class AddFragment : Fragment() {
             }
             userViewModel = ViewModelProvider(this@AddFragment).get(UserViewModel::class.java)
 
-
-
             return root
         }
     }
@@ -54,6 +54,11 @@ class AddFragment : Fragment() {
             val user = User(0, firstName = firstName!!, lastName = lastName!!, age = age!!.toInt())
             userViewModel.addUser(user)
             Toast.makeText(requireContext(), "Added successfully!", Toast.LENGTH_SHORT).show()
+
+
+            val inputManager =
+                context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputManager.hideSoftInputFromWindow(addBinding.fabOk.windowToken, 0)
 
             findNavController().navigate(R.id.action_addFragment_to_listFragment)
 
@@ -78,8 +83,6 @@ class AddFragment : Fragment() {
 
         return isFilled
     }
-
-
 }
 
 
