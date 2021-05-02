@@ -84,12 +84,3 @@ class AddFragment : Fragment() {
         return isFilled
     }
 }
-
-
-
-
-
-
-
-
-
