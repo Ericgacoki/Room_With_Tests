@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -22,6 +23,22 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
             withContext(Dispatchers.Default) {
                 repository.addUser(user)
             }
+        }
+    }
+
+    fun deleteUSer(user: User){
+        viewModelScope.launch (Dispatchers.IO){
+            async {
+                repository.deleteUser(user)
+            }.await()
+        }
+    }
+
+    fun deleteAll(){
+        viewModelScope.launch (Dispatchers.IO){
+            async {
+                repository.deleteAll()
+            }.await()
         }
     }
 
