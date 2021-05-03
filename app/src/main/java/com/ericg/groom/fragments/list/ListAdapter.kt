@@ -29,7 +29,7 @@ class ListAdapter(
     inner class ItemViewHolder(private val item: RowItemBinding) : RecyclerView.ViewHolder(item.root),
         View.OnClickListener {
         init {
-            item.root.setOnClickListener(this)
+            item.rowItemRoot.setOnClickListener(this)
             item.btnDelete.setOnClickListener(this)
         }
 
