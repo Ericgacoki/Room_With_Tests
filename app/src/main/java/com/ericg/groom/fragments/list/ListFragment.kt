@@ -2,9 +2,7 @@ package com.ericg.groom.fragments.list
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -37,11 +35,24 @@ class ListFragment : Fragment(), ListAdapter.ItemClicked {
             initRecyclerView()
             getData()
 
+            setHasOptionsMenu(true)
+
             fabAdd.setOnClickListener {
                 findNavController().navigate(R.id.action_listFragment_to_addFragment)
             }
             return root
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menuBtnDeleteAll -> deleteAllData()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun initRecyclerView() {
@@ -51,16 +62,14 @@ class ListFragment : Fragment(), ListAdapter.ItemClicked {
             adapter = this@ListFragment.adapter
             layoutManager = LinearLayoutManager(requireContext())
         }
-
     }
 
     private fun getData() {
-
         userViewModel.readData().observe(viewLifecycleOwner, { userList ->
             adapter.list = userList
             adapter.notifyDataSetChanged()
 
-            if (userList.isEmpty()){
+            if (userList.isEmpty()) {
                 Toast.makeText(requireContext(), "Click + to add data", Toast.LENGTH_SHORT).show()
             } else Toast.makeText(
                 requireContext(),
@@ -70,32 +79,66 @@ class ListFragment : Fragment(), ListAdapter.ItemClicked {
         })
     }
 
+    private fun deleteData(user: User, name: String){
+        AlertDialog.Builder(requireContext(), 2).apply {
+            setIcon(R.drawable.ic_warning); setTitle("Delete $name?")
+            setMessage("This can't be undone!")
+            setNegativeButton("cancel") { _, _ -> }
+
+            setPositiveButton("ok") { _, _ ->
+                userViewModel.deleteUSer(user)
+
+                Toast.makeText(
+                    requireContext(),
+                    "Successfully deleted $name!",
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
+            }
+            setCancelable(false)
+        }.create().show()
+    }
+
+    private fun deleteAllData(){
+        AlertDialog.Builder(requireContext(), 4).apply {
+            setIcon(R.drawable.ic_warning)
+            setTitle("Delete All?")
+            setMessage("This can't be undone!")
+
+            setNegativeButton("cancel") { _, _ -> }
+            setPositiveButton("ok") { _, _ ->
+
+                userViewModel.deleteAll()
+                Toast.makeText(requireContext(), "deleted all!", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }.create().show()
+    }
+
     override fun clicked(view: View, position: Int, id: Int?, userID: Int) {
+        val user = adapter.list[position]
+        val name = adapter.list[position].firstName
+
         when (id) {
-            R.id.btnDelete -> AlertDialog.Builder(requireContext(),3).apply {
-                setMessage("Delete?")
-                setIcon(R.drawable.ic_warning)
-                setNegativeButton("cancel") { _, _ -> }
+            R.id.btnDelete -> deleteData(user, name)
 
-                setPositiveButton("ok") { _, _ ->
-                    // TODO: delete clicked item from the database
-                }
+            R.id.rowItemRoot -> {
+                // TODO: edit this item
+                Toast.makeText(
+                    requireContext(),
+                    "wanna edit ${adapter.list[position].firstName}?",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
 
-                setCancelable(false)
-            }.create().show()
+            else -> {
+
+            }
         }
     }
+
+    override fun onDestroy() {
+        _listBinding = null
+        super.onDestroy()
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
