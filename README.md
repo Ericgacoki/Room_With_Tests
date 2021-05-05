@@ -1,4 +1,6 @@
-# Room
+# Room 
+
+`NB: Use wide screen/landscape mode for best view`
 
 ### Jetpack-journey - Implementing `Room` [Database](https://developer.android.com/training/data-storage/room) in Android
 
@@ -28,4 +30,4 @@ Other than the [official documentation](https://developer.android.com/training/d
 
 - [17-in-1 Codelabs Tutorial](https://developer.android.com/codelabs/android-room-with-a-view-kotlin#0)
 
-[<img src="images/codelabs.jpeg" width="640px" height="360px" />](https://developer.android.com/codelabs/android-room-with-a-view-kotlin#0)
+[<img src="images/codelabs.png" width="640px" height="360px" />](https://developer.android.com/codelabs/android-room-with-a-view-kotlin#0)
