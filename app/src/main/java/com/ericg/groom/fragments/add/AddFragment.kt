@@ -74,7 +74,7 @@ class AddFragment : Fragment() {
             addBinding.firstName, addBinding.lastName, addBinding.age
         ).forEach { input ->
             if (input.text.isBlank()) {
-                input.error = ""
+                input.error = "required"
                 isFilled = (isFilled) && false
             } else {
                 isFilled = (isFilled) && true
@@ -82,5 +82,10 @@ class AddFragment : Fragment() {
         }
 
         return isFilled
+    }
+
+    override fun onDestroy() {
+        _addBinding = null
+        super.onDestroy()
     }
 }
