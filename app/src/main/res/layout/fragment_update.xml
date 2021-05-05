@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                tools:context=".fragments.update.UpdateFragment">
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:id="@+id/layUpdateFirstName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/first_name"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="25"
+                    app:endIconCheckable="true"
+                    app:helperText="*"
+                    app:helperTextEnabled="true"
+                    app:helperTextTextColor="#FF0000"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/updateFirstName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:maxLength="25"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layUpdateLastName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/last_name"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="25"
+                    app:endIconCheckable="true"
+                    app:helperText="*"
+                    app:helperTextEnabled="true"
+                    app:helperTextTextColor="#FF0000"
+                    app:layout_constraintEnd_toEndOf="@id/layUpdateFirstName"
+                    app:layout_constraintStart_toStartOf="@id/layUpdateFirstName"
+                    app:layout_constraintTop_toBottomOf="@id/layUpdateFirstName">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/updateLastName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:maxLength="25"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layUpdateAge"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/age"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="2"
+                    app:endIconCheckable="true"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="#456"
+                    app:helperText="*"
+                    app:helperTextEnabled="true"
+                    app:helperTextTextColor="#FF0000"
+                    app:layout_constraintEnd_toEndOf="@id/layUpdateLastName"
+                    app:layout_constraintStart_toStartOf="@id/layUpdateLastName"
+                    app:layout_constraintTop_toBottomOf="@id/layUpdateLastName">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/updateAge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/updateFabOk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:contentDescription="@string/fab_ok"
+                    android:src="@drawable/ic_done"
+                    android:tint="@color/white"
+                    app:fabSize="mini"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/layUpdateAge"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/layUpdateAge"
+                    app:layout_constraintTop_toBottomOf="@+id/layUpdateAge"
+                    app:layout_constraintVertical_bias="0.0" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
