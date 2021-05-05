@@ -12,6 +12,6 @@
         android:id="@+id/menuBtnDeleteAll"
         android:iconTint="@color/white"
         android:icon="@drawable/ic_delete"
-        app:showAsAction="ifRoom"
-        android:title="@string/delete"/>
+        app:showAsAction="never"
+        android:title="@string/delete_all"/>
 </menu>
