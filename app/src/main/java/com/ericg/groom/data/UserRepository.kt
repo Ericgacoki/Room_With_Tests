@@ -9,11 +9,19 @@ class UserRepository(private val userDao: UserDao) {
         userDao.addUser(user)
     }
 
-    suspend fun deleteUser(user: User){
+    suspend fun deleteUser(user: User) {
         userDao.deleteUser(user)
     }
 
-    suspend fun deleteAll(){
+    suspend fun updateUser(user: User) {
+        userDao.updateUser(user)
+    }
+
+    suspend fun deleteAll() {
         userDao.deleteAll()
+    }
+
+    fun searchData(searchQuery: String): LiveData<List<User>> {
+        return userDao.searchData(searchQuery)
     }
 }
