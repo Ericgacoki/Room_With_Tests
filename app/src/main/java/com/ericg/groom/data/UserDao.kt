@@ -2,7 +2,6 @@ package com.ericg.groom.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UserDao {
