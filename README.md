@@ -6,25 +6,22 @@
 
 ### Database structure
 
-<img src="images/room1.png" width="840px" height="420px" />
+<img src="images/room1.png" width="840px" />
 
 ### App Screenshots (as of v1.0.0)
 
-<img src="images/screenshot1-dark.png" width="420px" height="840px" /> <img src="images/screenshot1-light.png" width="420px" height="840px" />
-<img src="images/screenshot2-dark.png" width="420px" height="840px" /><img src="images/screenshot2-light.png" width="420px" height="840px" />
-
-## Tech Guide
-... in progress
+<img src="images/screenshot1-dark.png" width="420px" /> <img src="images/screenshot1-light.png" width="420px" />
+<img src="images/screenshot2-dark.png" width="420px" /><img src="images/screenshot2-light.png" width="420px" />
 
 ## Recommended Learning sources
 
-Other than the [official documentation](https://developer.android.com/training/data-storage/room) I think the following can help you unwrap the magic going on here!
+Other than the [official documentation](https://developer.android.com/training/data-storage/room) I think the following can help you unwrap what's going on here!
 
-### 1. `YouTube` (my all time campus 🤤🤤)
+### 1. `YouTube`
 
 - [Room Database series](https://www.youtube.com/watch?v=lwAvI3WDXBY&list=PLSrm9z4zp4mEPOfZNV9O-crOhoMa0G2-o) by [@stevedza-san](https://github.com/stevdza-san)
 
-[<img src="images/youtube.png" width="640px" height="360px">](https://www.youtube.com/watch?v=lwAvI3WDXBY&list=PLSrm9z4zp4mEPOfZNV9O-crOhoMa0G2-o)
+[<img src="images/youtube.png" width="640px">](https://www.youtube.com/watch?v=lwAvI3WDXBY&list=PLSrm9z4zp4mEPOfZNV9O-crOhoMa0G2-o)
 
 ### 2. `Codelabs`
 
