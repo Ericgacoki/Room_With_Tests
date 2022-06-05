@@ -13,8 +13,11 @@ import com.ericg.groom.R
 import com.ericg.groom.data.User
 import com.ericg.groom.data.UserViewModel
 import com.ericg.groom.databinding.FragmentListBinding
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-class ListFragment : Fragment(), ListAdapter.ItemClicked, SearchView.OnQueryTextListener {
+@AndroidEntryPoint
+class ListFragment: Fragment (), ListAdapter.ItemClicked, SearchView.OnQueryTextListener {
 
     private lateinit var userViewModel: UserViewModel
     private lateinit var adapter: ListAdapter
@@ -31,7 +34,7 @@ class ListFragment : Fragment(), ListAdapter.ItemClicked, SearchView.OnQueryText
         _listBinding = FragmentListBinding.inflate(inflater, container, false)
         listBinding.apply {
 
-            userViewModel = ViewModelProvider(this@ListFragment).get(UserViewModel::class.java)
+            userViewModel = ViewModelProvider(requireActivity())[UserViewModel::class.java]
 
             setHasOptionsMenu(true)
             initRecyclerView()
@@ -72,7 +75,7 @@ class ListFragment : Fragment(), ListAdapter.ItemClicked, SearchView.OnQueryText
     private fun getData() {
         val data = userViewModel.readData()
 
-        data.observe(viewLifecycleOwner, { userList ->
+        data.observe(viewLifecycleOwner) { userList ->
             adapter.list = userList
             adapter.notifyDataSetChanged()
 
@@ -87,7 +90,7 @@ class ListFragment : Fragment(), ListAdapter.ItemClicked, SearchView.OnQueryText
                     Toast.LENGTH_SHORT
                 ).show()
             }
-        })
+        }
     }
 
     private fun deleteData(user: User, name: String) {
