@@ -17,7 +17,6 @@
             tools:context=".fragments.add.AddFragment">
 
             <com.google.android.material.textfield.TextInputLayout
-
                 android:id="@+id/layFirstName"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
@@ -28,7 +27,7 @@
                 app:endIconCheckable="true"
                 app:helperTextEnabled="true"
                 app:helperText="*"
-                app:helperTextTextColor="#FF0000"
+                app:helperTextTextColor="#D37575"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -53,7 +52,7 @@
                 app:endIconCheckable="true"
                 app:helperTextEnabled="true"
                 app:helperText="*"
-                app:helperTextTextColor="#FF0000"
+                app:helperTextTextColor="#D37575"
                 app:layout_constraintEnd_toEndOf="@id/layFirstName"
                 app:layout_constraintStart_toStartOf="@id/layFirstName"
                 app:layout_constraintTop_toBottomOf="@id/layFirstName">
@@ -80,7 +79,7 @@
                 app:helperTextEnabled="true"
                 app:endIconMode="clear_text"
                 app:endIconTint="#456"
-                app:helperTextTextColor="#FF0000"
+                app:helperTextTextColor="#D37575"
                 app:layout_constraintEnd_toEndOf="@id/layLastName"
                 app:layout_constraintStart_toStartOf="@id/layLastName"
                 app:layout_constraintTop_toBottomOf="@id/layLastName">
@@ -100,7 +99,6 @@
                 android:layout_height="wrap_content"
                 app:fabSize="mini"
                 android:src="@drawable/ic_done"
-                android:tint="@color/white"
                 android:layout_marginVertical="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/layAge"
