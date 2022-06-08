@@ -9,13 +9,16 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.ericg.groom.R
 import com.ericg.groom.data.User
 import com.ericg.groom.data.UserViewModel
 import com.ericg.groom.databinding.FragmentAddBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AddFragment : Fragment() {
 
     private lateinit var userViewModel: UserViewModel
@@ -39,7 +42,7 @@ class AddFragment : Fragment() {
             fabOk.setOnClickListener {
                 insertDatToDatabase()
             }
-            userViewModel = ViewModelProvider(this@AddFragment).get(UserViewModel::class.java)
+            userViewModel = ViewModelProvider(requireActivity())[UserViewModel::class.java]
 
             return root
         }

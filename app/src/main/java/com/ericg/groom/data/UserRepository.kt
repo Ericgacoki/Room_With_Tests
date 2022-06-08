@@ -1,27 +1,28 @@
 package com.ericg.groom.data
 
 import androidx.lifecycle.LiveData
+import javax.inject.Inject
 
-class UserRepository(private val userDao: UserDao) {
-    val readAllData: LiveData<List<User>> = userDao.readAllData()
+class UserRepository @Inject constructor(private val db: UserDatabase) {
+    val readAllData: LiveData<List<User>> = db.userDao.readAllData()
 
     suspend fun addUser(user: User) {
-        userDao.addUser(user)
+        db.userDao.addUser(user)
     }
 
     suspend fun deleteUser(user: User) {
-        userDao.deleteUser(user)
+        db.userDao.deleteUser(user)
     }
 
     suspend fun updateUser(user: User) {
-        userDao.updateUser(user)
+        db.userDao.updateUser(user)
     }
 
     suspend fun deleteAll() {
-        userDao.deleteAll()
+        db.userDao.deleteAll()
     }
 
     fun searchData(searchQuery: String): LiveData<List<User>> {
-        return userDao.searchData(searchQuery)
+        return db.userDao.searchData(searchQuery)
     }
 }

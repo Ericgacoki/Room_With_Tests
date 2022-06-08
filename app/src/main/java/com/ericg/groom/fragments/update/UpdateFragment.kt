@@ -18,7 +18,9 @@ import com.ericg.groom.R
 import com.ericg.groom.data.User
 import com.ericg.groom.data.UserViewModel
 import com.ericg.groom.databinding.FragmentUpdateBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class UpdateFragment : Fragment() {
 
     private var _binding: FragmentUpdateBinding? = null
@@ -34,7 +36,7 @@ class UpdateFragment : Fragment() {
     ): View {
 
         _binding = FragmentUpdateBinding.inflate(layoutInflater)
-        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        userViewModel = ViewModelProvider(requireActivity())[UserViewModel::class.java]
         args = navArgs<UpdateFragmentArgs>()
 
         binding.apply {

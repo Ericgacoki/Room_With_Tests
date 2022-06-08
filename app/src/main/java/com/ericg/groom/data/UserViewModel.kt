@@ -1,60 +1,54 @@
 package com.ericg.groom.data
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.CoroutineScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class UserViewModel(application: Application) : AndroidViewModel(application) {
-    private val readAllData: LiveData<List<User>>
+@HiltViewModel
+class UserViewModel @Inject constructor( // A shared viewModel
     private val repository: UserRepository
-
+) : ViewModel() {
+    private lateinit var _readAllData: LiveData<List<User>>
     init {
-        val userDao = UserDatabase.getDatabase(application).userDao()
-        repository = UserRepository(userDao)
-        readAllData = repository.readAllData
+        readData()
     }
+    val data:  LiveData<List<User>> = _readAllData
 
-    fun readData(): LiveData<List<User>>{
-        return readAllData
+    private fun readData() {
+        _readAllData = repository.readAllData
     }
 
     fun addUser(user: User) {
-        viewModelScope.launch(Dispatchers.IO) {
-            withContext(Dispatchers.Default) {
-                repository.addUser(user)
-            }
+        viewModelScope.launch() {
+            repository.addUser(user)
         }
     }
 
-    fun deleteUSer(user: User){
-        viewModelScope.launch (Dispatchers.IO){
-            withContext(Dispatchers.Default) {
-                repository.deleteUser(user)
-            }
+    fun deleteUSer(user: User) {
+        viewModelScope.launch {
+            repository.deleteUser(user)
+        }.invokeOnCompletion {
+            readData()
         }
     }
 
-    fun updateUser(user: User){
+    fun updateUser(user: User) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.updateUser(user)
         }
     }
 
-    fun deleteAll(){
-        viewModelScope.launch (Dispatchers.IO){
-            withContext(Dispatchers.Default) {
-                repository.deleteAll()
-            }
+    fun deleteAll() {
+        viewModelScope.launch {
+            repository.deleteAll()
         }
     }
 
-    fun searchData(searchQuery: String): LiveData<List<User>>{
-        return  repository.searchData(searchQuery)
+    fun searchData(searchQuery: String): LiveData<List<User>> {
+        return repository.searchData(searchQuery)
     }
 }
