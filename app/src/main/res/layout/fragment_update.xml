@@ -37,7 +37,7 @@
                     app:endIconCheckable="true"
                     app:helperText="*"
                     app:helperTextEnabled="true"
-                    app:helperTextTextColor="#FF0000"
+                    app:helperTextTextColor="#D37575"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -62,7 +62,7 @@
                     app:endIconCheckable="true"
                     app:helperText="*"
                     app:helperTextEnabled="true"
-                    app:helperTextTextColor="#FF0000"
+                    app:helperTextTextColor="#D37575"
                     app:layout_constraintEnd_toEndOf="@id/layUpdateFirstName"
                     app:layout_constraintStart_toStartOf="@id/layUpdateFirstName"
                     app:layout_constraintTop_toBottomOf="@id/layUpdateFirstName">
@@ -89,7 +89,7 @@
                     app:endIconTint="#456"
                     app:helperText="*"
                     app:helperTextEnabled="true"
-                    app:helperTextTextColor="#FF0000"
+                    app:helperTextTextColor="#D37575"
                     app:layout_constraintEnd_toEndOf="@id/layUpdateLastName"
                     app:layout_constraintStart_toStartOf="@id/layUpdateLastName"
                     app:layout_constraintTop_toBottomOf="@id/layUpdateLastName">
@@ -110,7 +110,6 @@
                     android:layout_marginVertical="5dp"
                     android:contentDescription="@string/fab_ok"
                     android:src="@drawable/ic_done"
-                    android:tint="@color/white"
                     app:fabSize="mini"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/layUpdateAge"
