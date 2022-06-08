@@ -73,7 +73,7 @@ class ListFragment: Fragment (), ListAdapter.ItemClicked, SearchView.OnQueryText
     }
 
     private fun getData() {
-        val data = userViewModel.readData()
+        val data = userViewModel.data
 
         data.observe(viewLifecycleOwner) { userList ->
             adapter.list = userList
