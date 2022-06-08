@@ -12,11 +12,14 @@ import javax.inject.Inject
 class UserViewModel @Inject constructor( // A shared viewModel
     private val repository: UserRepository
 ) : ViewModel() {
-    private lateinit var readAllData: LiveData<List<User>>
+    private lateinit var _readAllData: LiveData<List<User>>
+    init {
+        readData()
+    }
+    val data:  LiveData<List<User>> = _readAllData
 
-    fun readData(): LiveData<List<User>> {
-        readAllData = repository.readAllData
-        return readAllData
+    private fun readData() {
+        _readAllData = repository.readAllData
     }
 
     fun addUser(user: User) {
@@ -28,6 +31,8 @@ class UserViewModel @Inject constructor( // A shared viewModel
     fun deleteUSer(user: User) {
         viewModelScope.launch {
             repository.deleteUser(user)
+        }.invokeOnCompletion {
+            readData()
         }
     }
 
