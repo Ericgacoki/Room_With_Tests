@@ -6,7 +6,7 @@ import androidx.room.*
 @Dao
 interface UserDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addUser(user: User)
 
     @Query("SELECT * FROM user_table ORDER BY id ASC")
