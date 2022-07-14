@@ -14,15 +14,15 @@ import java.util.concurrent.TimeoutException
  * `InstantTaskExecutorRule` or a similar mechanism to execute tasks synchronously.
  */
 @VisibleForTesting(otherwise = VisibleForTesting.NONE)
-fun <T> LiveData<T>.getOrAwaitValueTest(
+fun <TYPE> LiveData<TYPE>.getOrAwaitValueTest(
     time: Long = 2,
     timeUnit: TimeUnit = TimeUnit.SECONDS,
     afterObserve: () -> Unit = {}
-): T {
-    var data: T? = null
+): TYPE {
+    var data: TYPE? = null
     val latch = CountDownLatch(1)
-    val observer = object : Observer<T> {
-        override fun onChanged(o: T?) {
+    val observer = object : Observer<TYPE> {
+        override fun onChanged(o: TYPE?) {
             data = o
             latch.countDown()
             this@getOrAwaitValueTest.removeObserver(this)
@@ -43,5 +43,5 @@ fun <T> LiveData<T>.getOrAwaitValueTest(
     }
 
     @Suppress("UNCHECKED_CAST")
-    return data as T
+    return data as TYPE
 }
